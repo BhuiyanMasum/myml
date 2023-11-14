@@ -58,3 +58,6 @@ if __name__ == "__main__":
     # Write metrics to file
     with open(os.path.abspath('reports/results/metrics.txt'), 'w') as outfile:
         outfile.write(f'\nMean Absolute Error = {mae_1}, Mean Squared Error = {mse_1}.')
+
+    # Save models for prediction
+    model.save("models/my_model")
