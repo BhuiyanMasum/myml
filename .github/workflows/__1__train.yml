@@ -1,0 +1,24 @@
+name: ML CI/CD pipeline
+on: [push]
+jobs:
+  train:
+    runs-on: [ubuntu-latest]
+    container: docker://dvcorg/cml-py3:latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: 'Train my model'
+        env:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          pip install -r requirements.txt
+          python src/pipes/trainer.py
+          
+          echo "## Model Metrics" > report.md
+          cat reports/results/metrics.txt >> report.md
+          
+          echo "\n## Model Performance" >> report.md
+          echo "Model performance metrics are on the plot below." >> report.md
+          
+          cml-publish reports/figures/model_results.png --md >> report.md
+          
+          cml-send-comment report.md
