@@ -33,6 +33,9 @@ jobs:
         env:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          pip install sphinx
+          pip install sphinx-rtd-theme
+          pip install ghp-import
           cd src
           sphinx-apidoc -o ../docs .
           cd ..
