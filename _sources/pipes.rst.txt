@@ -1,0 +1,53 @@
+pipes package
+=============
+
+Submodules
+----------
+
+pipes.infer module
+------------------
+
+.. automodule:: pipes.infer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pipes.models module
+-------------------
+
+.. automodule:: pipes.models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pipes.trainer module
+--------------------
+
+.. automodule:: pipes.trainer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pipes.utils module
+------------------
+
+.. automodule:: pipes.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+pipes.visualizer module
+-----------------------
+
+.. automodule:: pipes.visualizer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: pipes
+   :members:
+   :undoc-members:
+   :show-inheritance:
