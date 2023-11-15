@@ -12,7 +12,6 @@ def run():
         inputs=gr.components.Number(label='X'),
         outputs=gr.components.Number(label='y'),
         allow_flagging='never',
-        server_name="0.0.0.0"
     )
     
     app.launch()

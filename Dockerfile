@@ -1,10 +1,11 @@
-FROM python:3.9
+FROM tensorflow/tensorflow
 
 COPY models /app
 COPY requirements.txt /app
 COPY src/app/app.py /app
 
 WORKDIR /app
-RUN pip install -r requirements.txt
+RUN python -m pip install --upgrade pip
+RUN python -m pip install -r requirements.txt
 EXPOSE 7860
 CMD ["python", "app.py"]
