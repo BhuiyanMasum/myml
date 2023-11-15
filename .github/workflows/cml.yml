@@ -26,7 +26,6 @@ jobs:
   doc:
     needs: train
     runs-on: [ubuntu-latest]
-    container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
       - name: 'Generate docs'
@@ -42,3 +41,18 @@ jobs:
           make -C docs clean 
           make -C docs html
           ghp-import -n -p -f docs/_build/html
+  
+  docker:
+    needs: train
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Deploy docker
+        uses: gonuit/heroku-docker-deploy@v1.3.3
+        with:
+          dockerfile_directory: ./
+          dockerfile_name: Dockerfile
+          docker_options: "--no-cache"
+          process_type: web

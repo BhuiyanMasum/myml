@@ -6,11 +6,16 @@ def predict(x: float) -> float:
     y = model.predict([[x]])
     return y[0][0]
 
-app = gr.Interface(
-    fn=predict,
-    inputs=gr.components.Number(label='X'),
-    outputs=gr.components.Number(label='y'),
-    allow_flagging='never'
-)
+def run():
+    app = gr.Interface(
+        fn=predict,
+        inputs=gr.components.Number(label='X'),
+        outputs=gr.components.Number(label='y'),
+        allow_flagging='never',
+        server_name="0.0.0.0"
+    )
+    
+    app.launch()
 
-app.launch(share=True)
+if __name__ == "__main__":
+    run()
